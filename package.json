@@ -1,0 +1,35 @@
+{
+  "name": "remark-lint-code",
+  "version": "1.0.0",
+  "description": "Lint fenced code blocks by corresponding language tags",
+  "main": "index.js",
+  "author": "Stephen Belanger <admin@stephenbelanger.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Qard/remark-lint-code#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qard/remark-lint-code.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Qard/remark-lint-code/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "remark",
+    "markdown",
+    "lint"
+  ],
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "dependencies": {
+    "unist-util-visit": "^1.0.0"
+  },
+  "devDependencies": {
+    "remark": "^3.2.1",
+    "remark-lint": "^2.2.1",
+    "tap": "^5.1.1"
+  }
+}
