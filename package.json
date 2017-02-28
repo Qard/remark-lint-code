@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-code",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Lint fenced code blocks by corresponding language tags",
   "main": "index.js",
   "author": "Stephen Belanger <admin@stephenbelanger.com>",
