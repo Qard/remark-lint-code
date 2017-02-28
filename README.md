@@ -15,7 +15,7 @@ npm install remark-lint-code
 ### CLI
 
 ```console
-remark -u remark-lint="external:[\"remark-lint-code\"],\"lint-code\":{\"js\":\"remark-lint-code-eslint\"}" file.md
+remark -u lint -u lint-code="{\"js\":\"remark-lint-code-eslint\"}" file.md
 ```
 
 ### Programmatic
@@ -25,12 +25,14 @@ var remark = require('remark')
 var lint = require('remark-lint')
 var lintCode = require('remark-lint-code')
 var eslint = require('remark-lint-code-eslint')
+var report = require('vfile-reporter')
 
-remark.use(lint, {
-  'lint-code': {
-    js: eslint
-  }
-}).process('```js\nvar foo = "bar"\n```')
+remark()
+  .use(lint)
+  .use(lintCode, {js: eslint})
+  .process('```js\nvar foo = "bar"\n```', function (err, file) {
+    console.error(report(err || file));
+  })
 ```
 
 ## Writing plugins
@@ -43,7 +45,7 @@ module.exports = function (options) {
   var expect = (options || {}).expect
   return function (node, file) {
     if (node.value !== expect) {
-      file.warn('"' + node.value + '" does not match "' + expect + '"', node)
+      file.message('"' + node.value + '" does not match "' + expect + '"', node)
     }
   }
 }
@@ -56,7 +58,7 @@ currently being linted.
 
 The text content of the AST node can be found in the
 `value` property. To inform the user of warnings or errors, you can call
-`file.warn(message, node)` or `file.fail(message, node)`.
+`file.message(message, node)` or `file.fail(message, node)`.
 
 ---
 
