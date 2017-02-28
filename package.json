@@ -25,11 +25,12 @@
     "test": "tap test.js"
   },
   "dependencies": {
+    "unified-lint-rule": "^1.0.0",
     "unist-util-visit": "^1.0.0"
   },
   "devDependencies": {
-    "remark": "^3.2.1",
-    "remark-lint": "^2.2.1",
-    "tap": "^5.1.1"
+    "remark": "^7.0.0",
+    "remark-lint": "^6.0.0",
+    "tap": "^10.2.2"
   }
 }

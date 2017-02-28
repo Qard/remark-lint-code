@@ -1,7 +1,8 @@
 var visit = require('unist-util-visit')
+var rule = require('unified-lint-rule')
 var path = require('path')
 
-function lintCode (ast, file, linters, done) {
+function lintCode (ast, file, linters) {
   linters = linters || {}
 
   // Make sure linter functions are loaded
@@ -15,8 +16,6 @@ function lintCode (ast, file, linters, done) {
     var linter = linters[node.lang]
     if (linter) linter.call(node, file)
   })
-
-  done()
 }
 
 function modOrString (mod) {
@@ -48,6 +47,4 @@ Linter.from = function (mod) {
   return new Linter(handler(opts))
 }
 
-module.exports = {
-  'lint-code': lintCode
-}
+module.exports = rule('remark-lint:code', lintCode)
