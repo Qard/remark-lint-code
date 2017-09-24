@@ -1,5 +1,7 @@
 # remark-lint-code
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Qard/remark-lint-code.svg)](https://greenkeeper.io/)
+
 This is a pluggable [remark-lint](https://github.com/wooorm/remark-lint) rule
 which allows various linters to be run against fenced code blocks in markdown
 based on their language tag.
